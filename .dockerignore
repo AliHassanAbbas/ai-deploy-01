@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+.pytest_cache/
+.git/
+.env
+tests/
+milestones/
+benchmarks/
+scripts/
+configs/
+*.png
+Dockerfile
+Dockerfile.simple
+docker-compose.yml

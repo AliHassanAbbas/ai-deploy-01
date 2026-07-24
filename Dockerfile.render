@@ -1,0 +1,17 @@
+# Free-tier-friendly image: ONNX Runtime instead of PyTorch (~10x lighter).
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements-render.txt .
+RUN pip install --no-cache-dir -r requirements-render.txt
+
+COPY scripts/serve_onnx.py scripts/serve_onnx.py
+COPY models/sentiment_transformer/model.onnx models/sentiment_transformer/model.onnx
+COPY models/sentiment_transformer/config.json models/sentiment_transformer/config.json
+
+EXPOSE 8000
+
+# Render sets $PORT; default to 8000 for local runs. (Shell form on purpose:
+# we need the $PORT variable expanded.)
+CMD uvicorn scripts.serve_onnx:app --host 0.0.0.0 --port ${PORT:-8000}

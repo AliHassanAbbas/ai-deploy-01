@@ -1,0 +1,23 @@
+{
+  "model_version": "1.0.0",
+  "architecture": {
+    "input_dim": 2,
+    "hidden_dim": 16,
+    "num_classes": 2
+  },
+  "preprocessing": {
+    "mean": [
+      0.4892904758453369,
+      0.24416904151439667
+    ],
+    "std": [
+      0.8708491325378418,
+      0.5181772112846375
+    ]
+  },
+  "class_names": [
+    "outer_moon",
+    "inner_moon"
+  ],
+  "training_accuracy": 0.995
+}

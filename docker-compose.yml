@@ -1,0 +1,16 @@
+# One file that starts the whole app family: the model API + Redis.
+services:
+
+  api:
+    build: .                    # build the image from ./Dockerfile
+    ports:
+      - "8000:8000"             # Windows port 8000 -> container port 8000
+    environment:
+      - API_KEY=supersecret123  # exercise: read this from a .env file instead
+    volumes:
+      - ./models:/app/models    # swap models without rebuilding the image
+    depends_on:
+      - redis                   # start redis first
+
+  redis:
+    image: redis:7-alpine       # official image, no build needed
