@@ -6,7 +6,12 @@ __pycache__/
 tests/
 milestones/
 benchmarks/
-scripts/
+scripts/loadtest.py
+scripts/serve_naive.py
+scripts/serve_batched.py
+scripts/api_client.py
+scripts/predict.py
+scripts/stream_client.py
 configs/
 *.png
 Dockerfile
